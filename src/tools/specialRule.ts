@@ -217,7 +217,7 @@ function warnGeneral(position: number[], board: BoardType) {
     return positions;
 }
 
-export default function isAbsoluteKill(position: number[], board: BoardType, step: number) {
+export default function isAbsoluteKill(position: number[], board: BoardType, step: number = 0) {
     const result = warnGeneral(position, board);
     if (result.length !== 0 && absoluteKill(position, result, board)) {
         const text = settings.language === languages.zh ? '绝杀' : 'Absolute Kill';
