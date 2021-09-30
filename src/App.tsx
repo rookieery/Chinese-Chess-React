@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AppMenu from './components/AppMenu';
+import Home from './views/Home';
+import Settings from './views/Settings';
+import Change from './views/Change';
+import About from './views/About';
 
+type Routers = (string | (() => JSX.Element))[][];
+export type MenuProps = {
+  routers: Routers
+};
+const routes: Routers = [
+  ["home", Home],
+  ["settings", Settings],
+  ["change", Change],
+  ["about", About],
+];
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <AppMenu routers={routes} />
+        <div id="pageContainer" className="page-container">
+          <Switch>
+            {routes.map(([label, Component]) => (
+              <Route
+                key={label as string}
+                path={`/${label}`}
+              >
+                <Component />
+              </Route>
+            ))}
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="*"><h1>Page not found.</h1></Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,285 @@
+@import "./theme/themify.scss";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    width: 100%;
+    height: auto;
+}
+// 组件库主题样式（一个一个替换）
+h4.ant-typography,
+.ant-typography h4 {
+    @include themify {
+        color: themed("body-color");
+    }
+}
+
+.ant-divider {
+    @include themify {
+        border-top-color: themed("divider-border-color");
+    }
+}
+
+.ant-typography.ant-typography-secondary {
+    @include themify {
+        color: themed("text-color");
+    }
+}
+// 根据 primary danger disable进行配置样式
+// .ant-btn {
+//     @include themify {
+//         color: themed("body-color");
+//         border-color: themed("btn-border-color");
+//         background: themed("body-bg");
+//     }
+// }
+
+// .ant-btn:hover,
+// .ant-btn:focus {
+//     @include themify {
+//         color: themed("btn-hover-color") !important;
+//         border-color: themed("btn-hover-border-color") !important;
+//         background: themed("body-bg");
+//     }
+// }
+
+.ant-switch {
+    @include themify {
+        background-color: themed("switch-bg");
+    }
+}
+
+.ant-switch-checked {
+    background-color: #1890ff !important;
+}
+
+.ant-select {
+    @include themify {
+        color: themed("body-color");
+    }
+    .ant-select-selector {
+        @include themify {
+            background-color: themed("body-bg");
+            border-color: themed("select-border-color");
+        }
+    }
+    .ant-select-arrow {
+        @include themify {
+            color: themed("select-arrow-color");
+        }
+    }
+}
+
+.ant-select-dropdown {
+    @include themify {
+        color: themed("body-color");
+        background-color: themed("select-dropdown-bg");
+    }
+    .ant-select-item {
+        @include themify {
+            color: themed("body-color");
+        }
+    }
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+        @include themify {
+            background-color: themed("select-item-bg") !important;
+        }
+    }
+    .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+        @include themify {
+            background-color: themed("select-active-item-bg");
+        }
+    }
+}
+
+.ant-drawer-content {
+    @include themify {
+        background-color: themed("body-bg");
+    }
+    .ant-typography,
+    .ant-drawer-title,
+    .ant-drawer-close,
+    .ant-list-item {
+        @include themify {
+            color: themed("body-color");
+        }
+    }
+    .ant-drawer-header,
+    .ant-list-item {
+        @include themify {
+            border-color: themed("divider-border-color");
+            background-color: themed("body-bg");
+        }
+    }
+}
+
+// .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+//     @include themify {
+//         background-color: themed("ui-bg");
+//     }
+// }
+
+// 自适应布局
+@media (max-width: 374px) {
+    html {
+        font-size: 11px;
+    }
+    .chess {
+        font-size: x-small;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 420px) {
+    html {
+        font-size: 12px;
+    }
+    .chess {
+        font-size: large;
+    }
+}
+
+@media (min-width: 421px) {
+    html {
+        font-size: 14px;
+    }
+    .chess {
+        font-size: x-large;
+    }
+}
+
+//
+.App {
+    .app-menu {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        @include themify {
+            color: themed("title-color");
+        }
+        font-size: 2.2rem;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .home {
+        .board {
+            width: 34rem;
+            height: 38rem;
+            margin: 0 auto;
+            position: relative;
+            background-image: url("./assets/board.jpg");
+            background-size: 100%;
+            overflow: hidden;
+            @include themify {
+                box-shadow: 0 0 0.2rem 0.2rem themed("title-color");
+                opacity: themed("board-opacity");
+            }
+            .chess {
+                position: absolute;
+                cursor: move;
+                width: 2.2rem;
+                height: 2.2rem;
+                line-height: 2.2rem;
+                text-align: center;
+                border-radius: 50%;
+                background-color: wheat;
+                font-family: 隶书;
+                font-weight: 600;
+                user-select: none;
+                transition: margin 0.5s ease;
+            }
+            .point {
+                position: absolute;
+                pointer-events: none;
+                width: 0.6rem;
+                height: 0.6rem;
+                border-radius: 50%;
+                z-index: 10;
+            }
+            .border {
+                box-shadow: 0 0 0.2rem 0.2rem rgba(9, 187, 7, 0.6);
+            }
+        }
+        .button-box {
+            margin: 2rem auto;
+            padding: 0 4rem;
+            max-width: 50rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        .big-text {
+            font-size: 5rem;
+            font-weight: bold;
+            color: red;
+            position: fixed;
+            height: 5rem;
+            width: 30rem;
+            line-height: 5rem;
+            top: 22rem;
+            left: 50%;
+            margin-left: -15rem;
+            opacity: 1;
+            transform-origin: center;
+            text-align: center;
+        }
+
+        .fade-enter {
+            opacity: 0;
+            transform: scale(5);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: all ease-in 0.5s;
+        }
+        .fade-exit {
+            opacity: 1;
+        }
+        .fade-exit-active {
+            opacity: 0;
+            transform: scale(1.2);
+            transition: all ease-in 0.5s;
+        }
+    }
+    .settings {
+        padding-left: 15px;
+        padding-right: 15px;
+        // overflow-y: hidden;
+        .settings-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .article {
+        padding: 20px 15px;
+        font-size: 15px;
+        h2,
+        h3 {
+            @include themify {
+                color: themed("title-color");
+            }
+        }
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+        ul {
+            padding: 0 18px;
+        }
+        p {
+            margin: 0 0 0.8em;
+        }
+    }
+}

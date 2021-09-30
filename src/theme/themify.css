@@ -1,0 +1,10 @@
+body[data-theme="default"] {
+  color: #000000d9;
+  background-color: #fff;
+}
+
+body[data-theme="dark"] {
+  color: rgba(255, 255, 255, 0.65);
+  background-color: #000;
+}
+/*# sourceMappingURL=themify.css.map */

@@ -1,0 +1,70 @@
+$default-body-bg: #fff;
+$default-board-opacity: 1;
+$default-ui-bg: #fff;
+$default-switch-bg: #00000040;
+$default-select-dropdown-bg: #fff;
+$default-select-item-bg: #e6f7ff;
+$default-select-active-item-bg: #f5f5f5;
+$default-body-color: #000000d9;
+$default-text-color: rgba(0, 0, 0, 0.45);
+$default-btn-hover-color: #3c9be8;
+$default-btn-border-color: #d9d9d9;
+$default-btn-hover-border-color: #3c9be8;
+$default-title-color: #09bb07;
+$default-divider-border-color: rgba(0, 0, 0, 0.06);
+$default-select-border-color: #d9d9d9;
+$default-select-arrow-color: #00000040;
+$dark-body-bg: #000;
+$dark-board-opacity: 0.8;
+$dark-select-dropdown-bg: #1f1f1f;
+$dark-select-item-bg: #111b26;
+$dark-select-active-item-bg: rgba(255, 255, 255, 0.08);
+$dark-ui-bg: rgba(255, 255, 255, 0.8);
+$dark-switch-bg: rgba(255, 255, 255, 0.3);
+$dark-body-color: rgba(255, 255, 255, 0.65);
+$dark-text-color: rgba(255, 255, 255, 0.45);
+$dark-btn-hover-color: #165996;
+$dark-btn-border-color: #434343;
+$dark-btn-hover-border-color: #165996;
+$dark-title-color: #065705;
+$dark-divider-border-color: #303030;
+$dark-select-border-color: #434343;
+$dark-select-arrow-color: rgba(255, 255, 255, 0.3);
+
+$themes: (
+    default: (
+        body-bg: $default-body-bg,
+        board-opacity: $default-board-opacity,
+        ui-bg: $default-ui-bg,
+        switch-bg: $default-switch-bg,
+        select-dropdown-bg: $default-select-dropdown-bg,
+        select-item-bg: $default-select-item-bg,
+        select-active-item-bg: $default-select-active-item-bg,
+        body-color: $default-body-color,
+        btn-hover-color: $default-btn-hover-color,
+        btn-border-color: $default-btn-border-color,
+        btn-hover-border-color: $default-btn-hover-border-color,
+        title-color: $default-title-color,
+        divider-border-color: $default-divider-border-color,
+        select-border-color: $default-select-border-color,
+        select-arrow-color: $default-select-arrow-color,
+    ),
+    dark: (
+        body-bg: $dark-body-bg,
+        board-opacity: $dark-board-opacity,
+        ui-bg: $dark-ui-bg,
+        switch-bg: $dark-switch-bg,
+        select-dropdown-bg: $dark-select-dropdown-bg,
+        select-item-bg: $dark-select-item-bg,
+        select-active-item-bg: $dark-select-active-item-bg,
+        body-color: $dark-body-color,
+        text-color: $dark-text-color,
+        btn-hover-color: $dark-btn-hover-color,
+        btn-border-color: $dark-btn-border-color,
+        btn-hover-border-color: $dark-btn-hover-border-color,
+        title-color: $dark-title-color,
+        divider-border-color: $dark-divider-border-color,
+        select-border-color: $dark-select-border-color,
+        select-arrow-color: $dark-select-arrow-color,
+    ),
+);
